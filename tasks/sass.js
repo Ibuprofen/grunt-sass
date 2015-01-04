@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 				grunt.file.write(el.dest, '');
 			}
 
-			sass.render(assign({}, options, {
+			sass.renderFile(assign({}, options, {
 				// temp workaround for sass/node-sass#425
 				file: path.resolve(src),
 				outFile: path.resolve(el.dest),
