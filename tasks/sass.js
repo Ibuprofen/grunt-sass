@@ -22,17 +22,21 @@ module.exports = function (grunt) {
 				grunt.file.write(el.dest, '');
 			}
 
-			sass.renderFile(assign({}, options, {
+			sass.render(assign({}, options, {
 				// temp workaround for sass/node-sass#425
 				file: path.resolve(src),
 				outFile: path.resolve(el.dest),
 				success: function (css, map) {
 					grunt.verbose.writeln('File ' + chalk.cyan(el.dest) + ' created.');
 
-					if (options.sourceMap) {
-						var pth = options.sourceMap === true ? (el.dest + '.map') : path.relative(process.cwd(), map);
-						grunt.verbose.writeln('File ' + chalk.cyan(pth) + ' created.');
-					}
+          if (options.sourceMap) {
+            var pth = options.sourceMap === true ? (el.dest + '.map') : path.relative(process.cwd(), map);
+            grunt.verbose.writeln('File ' + chalk.cyan(pth) + ' created.');
+
+            grunt.file.write(pth, css.css);
+          } else {
+            grunt.file.write(el.dest, css.css);
+          }
 
 					next();
 				},
