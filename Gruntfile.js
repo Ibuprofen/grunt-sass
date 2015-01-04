@@ -12,9 +12,9 @@ module.exports = function (grunt) {
 				options: {
 					includePaths: ['test/fixtures']
 				},
-				files: {
-					'test/tmp/include-paths.css': 'test/fixtures/include-paths.scss'
-				}
+        files: {
+          'test/tmp/include-paths.css': 'test/fixtures/include-paths.scss'
+        }
 			},
 			imagePath: {
 				options: {
@@ -31,7 +31,7 @@ module.exports = function (grunt) {
 				expand: true,
 				ext: '.css'
 			},
-			sourceMap: {
+			/*sourceMap: {
 				options: {
 					sourceMap: 'source-map.css.map'
 				},
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
 				files: {
 					'test/tmp/source-map-simple.css': 'test/fixtures/test.scss'
 				}
-			},
+			},*/
 			precision: {
 				options: {
 					precision: 3

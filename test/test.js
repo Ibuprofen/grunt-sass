@@ -37,8 +37,7 @@ exports.sass = {
 
 		test.done();
 	},
-	/*
-	sourceMap: function (test) {
+	/*sourceMap: function (test) {
 		test.expect(2);
 
 		var css = grunt.file.read('test/tmp/source-map.css');
@@ -48,7 +47,6 @@ exports.sass = {
 		test.ok(/test\.scss/.test(map), 'should include the main file in sourceMap at least');
 		test.done();
 	},
-	*/
 	sourceMapSimple: function (test) {
 		test.expect(2);
 
@@ -58,7 +56,7 @@ exports.sass = {
 		var map = grunt.file.read('test/tmp/source-map-simple.css.map');
 		test.ok(/test\.scss\"/.test(map), 'should include the main file in sourceMap at least');
 		test.done();
-	},
+	},*/
 	precision: function (test) {
 		test.expect(1);
 
