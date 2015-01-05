@@ -18,9 +18,9 @@ module.exports = function (grunt) {
 				return next();
 			}
 
-			if (!grunt.file.exists(el.dest)) {
-				grunt.file.write(el.dest, '');
-			}
+      if (grunt.file.exists(el.dest)) {
+        grunt.file.delete(el.dest);
+      }
 
 			sass.render(assign({}, options, {
 				// temp workaround for sass/node-sass#425
@@ -33,9 +33,9 @@ module.exports = function (grunt) {
             var pth = options.sourceMap === true ? (el.dest + '.map') : path.relative(process.cwd(), map);
             grunt.verbose.writeln('File ' + chalk.cyan(pth) + ' created.');
 
-            grunt.file.write(pth, css.css);
+            grunt.file.write(pth, css);
           } else {
-            grunt.file.write(el.dest, css.css);
+            grunt.file.write(el.dest, css);
           }
 
 					next();
